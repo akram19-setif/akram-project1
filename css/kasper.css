@@ -124,6 +124,7 @@ header .container nav {
   align-items: center;
 }
 header .container nav .toggle-menu {
+  cursor: pointer;
   color: white;
   font-size: 22px;
   margin-right: 20px;
@@ -150,16 +151,16 @@ header .container nav ul li a {
 }
 @media (max-width: 767px) {
   header .container nav ul {
-    display: none;
-  }
-  header .container nav .toggle-menu:hover + ul {
-    display: flex; /*hna rayha tannuler display : none*/
-    flex-direction: column;
-    position: absolute;
-    right: 0;
-    top: 100%;
+    display: block;
+    background-color: #333;
+    max-height: 0px;
     width: 100%;
-    background-color: #161616b7;
+    position: absolute;
+    top: 120px;
+    left: 0;
+    text-align: center;
+    overflow: hidden;
+    transition: max-height 0.5s;
   }
   header .container nav li a {
     padding: 15px !important;
@@ -178,6 +179,7 @@ header nav .form {
   border-left: 1px solid #bf9e9e;
 }
 header nav .form i {
+  cursor: pointer;
   color: #f1e1e1;
   top: 15%;
   right: 0;
@@ -187,10 +189,11 @@ header nav .form i {
 /* Landing  */
 .landing {
   min-height: 100vh;
+  max-width: 100%;
   background-color: #161616;
-  background-image: url("../images/landing.jpg");
   background-size: cover;
   position: relative;
+  transition: 1s ease-out;
 }
 .landing .overlay {
   position: absolute;
@@ -243,6 +246,11 @@ header nav .form i {
 @media (max-width: 767px) {
   .landing .change-background {
     display: none;
+  }
+  .landing {
+    background-size: 100%  100%;
+    background-repeat: no-repeat;
+    min-height: 98vh;
   }
 }
 .landing .left {
@@ -403,10 +411,11 @@ header nav .form i {
   font-weight: normal;
   font-size: 16px;
 }
-@media (max-width: 667px){
-  .portfolio .shuffle li{
-  margin-left: 0px;
-}}
+@media (max-width: 667px) {
+  .portfolio .shuffle li {
+    margin-left: 0px;
+  }
+}
 .portfolio .shuffle li.active,
 .portfolio .shuffle li:hover {
   color: white;
