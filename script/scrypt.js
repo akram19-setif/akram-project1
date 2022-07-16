@@ -7,18 +7,18 @@ let bullets =document.querySelectorAll(".landing-bulls li");
 var i = 0,
   time = 3500;
 let images = [
-  "url('../images/landing.jpg')",
-  "url('../images/landing2.jpg')",
-  "url('../images/landing3.jpg')",
+  "../images/landing.jpg",
+  "../images/landing2.jpg",
+  "../images/landing3.jpg",
 ];
 
 // Change the images Auto
-
+window.onload = changeIMG; 
 function changeIMG() {
-  imageLanding.style.backgroundImage = images[i];
+  imageLanding.style.backgroundImage = `url(${images[0]})`;
   if (i < images.length - 1) {
     i++;
-    imageLanding.style.backgroundImage = images[i];
+    imageLanding.style.backgroundImage = `url(${images[i]})`;
     for (let index = 0; index < bullets.length; index++) {
       bullets[index].classList.remove("active");
     }
@@ -34,20 +34,20 @@ function changeIMG() {
   }
   setTimeout("changeIMG()", time);
 }
-window.onload = changeIMG;
+
 
 // Change the images with even
 right.addEventListener("click", function () {
   if (i < images.length - 1) {
     i++;
-    imageLanding.style.backgroundImage = images[i];
+    imageLanding.style.backgroundImage = `url(${images[i]})`;
     for (let index = 0; index < bullets.length; index++) {
       bullets[index].classList.remove("active");
     }
     bullets[i].classList.add("active");
   } else {
     i = 0;
-    imageLanding.style.backgroundImage = images[i];
+    imageLanding.style.backgroundImage = `url(${images[i]})`;
     for (let index = 0; index < bullets.length; index++) {
       bullets[index].classList.remove("active");
     }
