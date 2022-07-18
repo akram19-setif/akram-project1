@@ -1,7 +1,7 @@
 let right = document.querySelector(".landing .right");
 let left = document.querySelector(".landing .left");
 let imageLanding = document.querySelector(".landing");
-let bullets =document.querySelectorAll(".landing-bulls li");
+let bullets = document.querySelectorAll(".landing-bulls li");
 
 // console.log(bullets[0].classList);
 var i = 0,
@@ -13,44 +13,34 @@ let images = [
 ];
 
 // Change the images Auto
-window.onload = changeIMG; 
+window.onload = changeIMG;
 function changeIMG() {
   imageLanding.style.backgroundImage = `url(${images[0]})`;
   if (i < images.length - 1) {
     i++;
     imageLanding.style.backgroundImage = `url(${images[i]})`;
-    for (let index = 0; index < bullets.length; index++) {
-      bullets[index].classList.remove("active");
-    }
+    bullets.forEach((ele) => ele.classList.remove("active"));
     bullets[i].classList.add("active");
-
   } else {
     i = 0;
     imageLanding.style.backgroundImage = images[i];
-    for (let index = 0; index < bullets.length; index++) {
-      bullets[index].classList.remove("active");
-    }
+    bullets.forEach((ele) => ele.classList.remove("active"));
     bullets[i].classList.add("active");
   }
   setTimeout("changeIMG()", time);
 }
-
 
 // Change the images with even
 right.addEventListener("click", function () {
   if (i < images.length - 1) {
     i++;
     imageLanding.style.backgroundImage = `url(${images[i]})`;
-    for (let index = 0; index < bullets.length; index++) {
-      bullets[index].classList.remove("active");
-    }
+    bullets.forEach((ele) => ele.classList.remove("active"));
     bullets[i].classList.add("active");
   } else {
     i = 0;
     imageLanding.style.backgroundImage = `url(${images[i]})`;
-    for (let index = 0; index < bullets.length; index++) {
-      bullets[index].classList.remove("active");
-    }
+    bullets.forEach((ele) => ele.classList.remove("active"));
     bullets[i].classList.add("active");
   }
 });
@@ -64,19 +54,15 @@ left.addEventListener("click", function () {
   }
 });
 
-
 // menuToggle
 // ==========menu-toggle =======
-let menutoggle=document.querySelector('.toggle-menu');
-let MenuItems= document.getElementById('MenuItems');
+let menutoggle = document.querySelector(".toggle-menu");
+let MenuItems = document.getElementById("MenuItems");
 
 menutoggle.addEventListener("click", function () {
-  if(MenuItems.style.maxHeight == "0px") {
-    MenuItems.style.maxHeight='200px';
- }
- else
- {
-   MenuItems.style.maxHeight='0px';
- }
-      
+  if (MenuItems.style.maxHeight == "0px") {
+    MenuItems.style.maxHeight = "200px";
+  } else {
+    MenuItems.style.maxHeight = "0px";
+  }
 });
