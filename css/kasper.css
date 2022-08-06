@@ -188,12 +188,21 @@ header nav .form i {
 }
 /* Landing  */
 .landing {
-  min-height: 100vh;
-  max-width: 100%;
+  max-height: 100vh;
   background-color: #161616;
-  background-size: cover;
   position: relative;
+  overflow: hidden;
+}
+.landing .container-img{
+  display: flex;
+  flex-flow: row nowrap;
   transition: 1s ease-out;
+  max-height: 100vh;
+}
+.landing .container-img .image {
+  background-size: cover;
+  max-width: 100%;
+  
 }
 .landing .overlay {
   position: absolute;
@@ -247,8 +256,10 @@ header nav .form i {
   .landing .change-background {
     display: none;
   }
-  .landing {
-    background-size: 100%  100%;
+  .landing .container-img{
+    display: flex;
+    flex-flow: row nowrap;
+    background-size: 100% 100%;
     background-repeat: no-repeat;
     min-height: 98vh;
   }

@@ -1,58 +1,57 @@
+//Select the Elements
 let right = document.querySelector(".landing .right");
 let left = document.querySelector(".landing .left");
-let imageLanding = document.querySelector(".landing");
+let imgContainer = document.querySelector(".landing .container-img");
 let bullets = document.querySelectorAll(".landing-bulls li");
+let images=document.querySelectorAll('.landing .container-img img');
 
-// console.log(bullets[0].classList);
-var i = 0,
-  time = 3500;
-let images = [
-  "../images/landing.jpg",
-  "../images/landing2.jpg",
-  "../images/landing3.jpg",
-];
+//Variables
+let i = 0,
+time = 3500,size=images[0].clientWidth,counter=0;
+
+
+
+right.addEventListener('click', function(){
+  if(counter<images.length-1){
+  imgContainer.style.transition="1s ease-out";
+  counter++;
+  imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;}
+  else{
+  counter=0;
+  imgContainer.style.transition="none";
+  imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;
+  }
+});
+
+left.addEventListener('click',function(){
+  if(counter>0){
+  imgContainer.style.transition="1s ease-out";
+  counter--;
+  imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;
+} else {
+  counter=images.length -2;
+  imgContainer.style.transition="none";
+  imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;
+}
+});
+
 
 // Change the images Auto
 window.onload = changeIMG;
 function changeIMG() {
-  imageLanding.style.backgroundImage = `url(${images[0]})`;
-  if (i < images.length - 1) {
-    i++;
-    imageLanding.style.backgroundImage = `url(${images[i]})`;
-    bullets.forEach((ele) => ele.classList.remove("active"));
-    bullets[i].classList.add("active");
-  } else {
-    i = 0;
-    imageLanding.style.backgroundImage = images[i];
-    bullets.forEach((ele) => ele.classList.remove("active"));
-    bullets[i].classList.add("active");
-  }
+  if(counter<images.length-1){
+    imgContainer.style.transition="1s ease-out";
+    counter++;
+    imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;}
+    else{
+    counter=0;
+    imgContainer.style.transition="none";
+    imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;
+    }
+  
   setTimeout("changeIMG()", time);
 }
 
-// Change the images with even
-right.addEventListener("click", function () {
-  if (i < images.length - 1) {
-    i++;
-    imageLanding.style.backgroundImage = `url(${images[i]})`;
-    bullets.forEach((ele) => ele.classList.remove("active"));
-    bullets[i].classList.add("active");
-  } else {
-    i = 0;
-    imageLanding.style.backgroundImage = `url(${images[i]})`;
-    bullets.forEach((ele) => ele.classList.remove("active"));
-    bullets[i].classList.add("active");
-  }
-});
-left.addEventListener("click", function () {
-  if (i > 0) {
-    i--;
-    imageLanding.style.backgroundImage = images[i];
-  } else {
-    i = images.length - 1;
-    imageLanding.style.backgroundImage = images[i];
-  }
-});
 
 // menuToggle
 // ==========menu-toggle =======
