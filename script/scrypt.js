@@ -27,6 +27,9 @@ right.addEventListener('click', function(){
 }
 }
   else{
+  i=1;
+  bullets.forEach((ele) => ele.classList.remove("active"));
+  bullets[i].classList.add("active");
   counter=0;
   imgContainer.style.transition="none";
   imgContainer.style.transform=`translateX(`+ ( -size * counter) +`px)`;
